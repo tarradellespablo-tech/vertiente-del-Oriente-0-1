@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vertiente del Oriente · Diseño organizacional</title>
+<style>
+:root{--bg:#f3f8f9;--card:#fff;--ink:#12303a;--mute:#55727b;--line:#d3e3e7;--agua:#0b6e8a;--agua2:#dff0f4;--tapa:#c93a2e;--sol:#e9a825;--ok:#1c7c54;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1b20;--card:#14282f;--ink:#e6f1f3;--mute:#93b0b8;--line:#27424b;--agua:#4fc0dd;--agua2:#173840;--tapa:#ef6a5d;--sol:#f0bb4a;--ok:#5ccf9d;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0d1b20;--card:#14282f;--ink:#e6f1f3;--mute:#93b0b8;--line:#27424b;--agua:#4fc0dd;--agua2:#173840;--tapa:#ef6a5d;--sol:#f0bb4a;--ok:#5ccf9d;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Segoe UI",system-ui,-apple-system,Roboto,sans-serif}
+a{color:var(--agua)}
+header{background:var(--agua);color:#fff;padding:20px clamp(16px,4vw,40px)}
+header h1{margin:0;font-size:clamp(22px,4vw,32px);letter-spacing:-.01em}
+header p{margin:4px 0 0;opacity:.9;max-width:70ch}
+.wrap{display:grid;grid-template-columns:270px 1fr;gap:0;max-width:1200px;margin:0 auto}
+nav{padding:20px 16px 20px clamp(16px,3vw,32px);position:sticky;top:0;align-self:start;max-height:100vh;overflow:auto}
+nav h2{font-size:13px;color:var(--mute);font-weight:600;margin:16px 0 6px}
+nav a{display:block;text-decoration:none;color:var(--ink);padding:8px 10px 8px 14px;border-left:3px solid var(--line);font-size:14.5px;line-height:1.3}
+nav a small{display:block;color:var(--mute);font-size:12px}
+nav a:hover{background:var(--agua2)}
+nav a[aria-current="page"]{border-left-color:var(--tapa);background:var(--agua2);font-weight:600}
+nav a:focus-visible,button:focus-visible{outline:3px solid var(--sol);outline-offset:2px}
+main{padding:24px clamp(16px,3vw,32px) 60px;min-width:0}
+h2.t{font-size:clamp(22px,3vw,28px);margin:0 0 4px}
+.sub{color:var(--mute);margin:0 0 20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin:0 0 16px}
+.card h3{margin:0 0 10px;font-size:17px}
+.meta{display:flex;flex-wrap:wrap;gap:8px 24px;margin:0 0 16px}
+.meta div{font-size:14px}.meta b{display:block;color:var(--mute);font-weight:600;font-size:12.5px}
+.code{display:inline-block;background:var(--tapa);color:#fff;font-weight:700;padding:2px 10px;border-radius:4px;font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+ol,ul{margin:0;padding-left:20px}li{margin:4px 0}
+.comp{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:5px 0;border-bottom:1px dashed var(--line);font-size:14.5px}
+.dots{display:flex;gap:4px;flex:none}.dots i{width:12px;height:12px;border-radius:50%;background:var(--line)}.dots i.on{background:var(--agua)}
+.kpi{border-left:4px solid var(--sol);padding:4px 12px;margin:8px 0;font-size:14.5px}
+.tags span{display:block;margin:4px 0;font-size:14.5px}
+.tags b{color:var(--agua)}
+.pager{display:flex;justify-content:space-between;gap:10px;margin-top:20px}
+.pager a{padding:8px 14px;border:1px solid var(--line);border-radius:6px;text-decoration:none;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--mute);font-weight:600;font-size:13px}
+.scroll{overflow-x:auto}
+.tree,.tree ul{list-style:none;padding-left:18px;margin:0;border-left:2px solid var(--line)}
+.tree{border:0;padding:0}
+.tree li{margin:2px 0;padding:2px 0 2px 8px;font-size:14.5px}
+.tree li.g>span{font-weight:700}
+.tree a{background:var(--tapa);color:#fff;text-decoration:none;padding:1px 8px;border-radius:4px;font-weight:600}
+.tree .c{color:var(--mute)}
+button.tg{float:right;background:transparent;color:#fff;border:1px solid #ffffff88;border-radius:6px;padding:4px 10px;cursor:pointer}
+@media (max-width:820px){.wrap{display:block}nav{position:static;max-height:none;border-bottom:1px solid var(--line)}nav .l{display:flex;flex-wrap:wrap;gap:6px}nav a{border:1px solid var(--line);border-radius:6px;padding:6px 10px}nav a small{display:none}}
+</style>
+</head>
+<body>
+<header>
+<button class="tg" id="tg" type="button">Modo oscuro</button>
+<h1>Embotelladora Vertiente del Oriente S.A.</h1>
+<p>Diagnóstico y diseño organizacional: empresa, organigrama y ocho puestos con su perfil por competencias.</p>
+</header>
+<div class="wrap">
+<nav aria-label="Navegación por secciones y puestos" id="nav"></nav>
+<main id="main" tabindex="-1"></main>
+</div>
+<script>
+var P=[
+{c:"P-01",n:"Gerente de Producción y Operaciones",a:"Producción y Operaciones",d:"Gerente General",pl:1,
+p:"Garantizar el plan de producción en volumen, calidad, costo y seguridad, maximizando la eficiencia de las cuatro líneas de embotellado.",
+f:["Aprobar y controlar el plan mensual de producción según la demanda comercial.","Administrar el presupuesto operativo y el costo por caja.","Liderar la mejora continua y el OEE de las líneas.","Coordinar con Calidad, Logística y Mantenimiento las paradas y programas.","Asegurar el cumplimiento de BPM, HACCP y normas de seguridad."],
+fo:"Licenciatura en Ingeniería Industrial, Mecánica, Química o afín. Deseable: maestría en operaciones o MBA.",ex:"8 años en manufactura, 4 en jefatura; plantas de bebidas o alimentos.",
+g:[["Liderazgo",4],["Toma de decisiones",4],["Comunicación efectiva",3],["Trabajo en equipo",3]],e:[["Planificación operativa",4],["Mejora continua y Lean",3],["Costos industriales",3],["Inocuidad y seguridad",3]],
+r:["Presupuesto operativo de la planta, cuatro líneas de embotellado y el personal de Producción, Mantenimiento y Planificación.","Aprueba el plan mensual de producción, las paradas programadas y las mejoras menores; escala al Gerente General los cambios de capacidad y las inversiones mayores.","Responde por el OEE, el cumplimiento del plan, el costo por caja y el cumplimiento de las normas de seguridad."],sb:["Procesos de embotellado, costos industriales, Lean, BPM, HACCP y normas de seguridad.","Planificar la producción, interpretar indicadores como el OEE, elaborar y controlar presupuestos y liderar reuniones de mejora.","Firmeza, responsabilidad, visión de resultados y serenidad para decidir bajo presión.","Se coordina con Calidad, Logística, Mantenimiento y Comercial, y trata con respeto a supervisores y operarios."],cn:["Jornada diurna de oficina, con disponibilidad ante paradas o emergencias de planta.","Ruido, tránsito de montacargas y estrés por las metas de producción; usa EPP al recorrer la planta.","Oficina en el Parque Industrial y recorridos diarios por las líneas de producción."],
+k:["OEE = disponibilidad × rendimiento × calidad. Meta ≥ 80 %.","Cumplimiento del plan = cajas producidas / programadas × 100. Meta ≥ 97 %."],
+s:"Bs 18.000 a 24.000. Bono anual, seguro médico privado.",ev:"Caso de planificación, entrevista por competencias, assessment center.",
+o:"Título, 8 años de experiencia, liderazgo",de:"Lean Six Sigma, inglés técnico",dv:"ERP de la empresa, auditoría ISO 22000"},
+{c:"P-02",n:"Supervisor de Línea de Embotellado",a:"Producción y Operaciones",d:"Jefe de Planta de Embotellado",pl:6,
+p:"Conducir la línea de su turno para cumplir el programa con calidad, seguridad y mínimo desperdicio.",
+f:["Arrancar y cerrar el turno según la orden de producción.","Asignar tareas y controlar el desempeño de su cuadrilla.","Registrar paradas, rechazos y consumos de materiales.","Hacer cumplir BPM, limpieza e higiene de la línea.","Coordinar con Calidad y Mantenimiento la solución de fallas."],
+fo:"Técnico superior en Mecánica, Industrial, Química o Alimentos. Deseable: licenciatura en curso, BPM y HACCP.",ex:"3 años en producción, 1 como encargado; líneas de llenado de bebidas.",
+g:[["Liderazgo de equipos",3],["Comunicación efectiva",3],["Responsabilidad",3],["Toma de decisiones",3],["Orientación a resultados",3]],e:[["Gestión de turno y producción",3],["Análisis de fallas básicas",2],["BPM e higiene",3],["Seguridad industrial",3]],
+r:["Una línea de embotellado, la cuadrilla de su turno y los materiales y envases asignados.","Asigna tareas dentro del turno, ordena paradas por seguridad o calidad y retiene producto no conforme; escala al Jefe de Planta las fallas mayores y los cambios al programa.","Responde por la eficiencia de la línea, el desperdicio de envase y el cumplimiento de BPM e higiene en su turno."],sb:["Operación de líneas de llenado, BPM, HACCP básico y registros de producción.","Arrancar y cerrar el turno, distribuir tareas, registrar paradas y rechazos y coordinar la solución de fallas.","Responsabilidad, autoridad respetuosa y disciplina con la seguridad.","Comunica con claridad a su cuadrilla y se coordina con Calidad y Mantenimiento en cada turno."],cn:["Turnos rotativos, incluido el turno nocturno, según el programa de producción.","Ruido, piso mojado, partes móviles y contacto con vidrio y productos de limpieza; uso obligatorio de EPP.","Planta de embotellado, de pie la mayor parte del turno."],
+k:["Eficiencia de línea = cajas producidas / capacidad nominal × 100. Meta ≥ 82 %.","Desperdicio de envase = rechazadas / procesadas × 100. Meta ≤ 1,5 %."],
+s:"Bs 7.500 a 9.500. Bono de productividad, recargo nocturno de ley.",ev:"Prueba técnica de línea, simulación de turno, entrevista por competencias.",
+o:"Formación técnica, 3 años en producción, turnos rotativos",de:"BPM y HACCP, 5S",dv:"Análisis de causa raíz, sistema de registro de planta"},
+{c:"P-03",n:"Operador de Llenadora",a:"Producción y Operaciones",d:"Supervisor de Línea",pl:24,
+p:"Operar la llenadora y sus equipos asociados para obtener producto conforme a especificación y a la velocidad programada.",
+f:["Preparar y verificar la llenadora antes del arranque.","Operar la máquina y monitorear presión, nivel de llenado y tapado.","Retirar envases defectuosos y registrar rechazos.","Limpiar y sanitizar la máquina (CIP) según procedimiento.","Hacer cambios de formato y de sabor."],
+fo:"Bachillerato; técnico medio en Mecánica o Electromecánica. Deseable: técnico superior, BPM.",ex:"1 año operando maquinaria industrial; envasado de bebidas deseable.",
+g:[["Trabajo en equipo",2],["Atención al detalle",3],["Disciplina y puntualidad",3],["Responsabilidad",3],["Adaptación al cambio (turnos y formatos)",2]],e:[["Operación de llenado",3],["Higiene y sanitización",3],["Seguridad industrial",2],["Control de calidad en línea",2]],
+r:["Una llenadora y sus equipos asociados, además de envases, tapas y producto en proceso.","Detiene la máquina ante riesgo de seguridad o producto fuera de especificación y avisa al supervisor; no modifica parámetros críticos sin autorización.","Responde por el producto conforme, la velocidad programada y el registro completo de rechazos."],sb:["Funcionamiento de la llenadora, parámetros de presión, nivel y tapado, y procedimientos de limpieza CIP.","Operar y ajustar la máquina, hacer cambios de formato y de sabor y registrar rechazos.","Atención al detalle, puntualidad y disciplina en el cumplimiento de los procedimientos.","Trabaja de forma coordinada con su turno y comunica las fallas al supervisor y a Mantenimiento."],cn:["Turnos rotativos, con recargo nocturno de ley.","Ruido, piso mojado, partes móviles y salpicaduras de productos de limpieza; uso obligatorio de EPP.","Línea de llenado en planta, de pie y en ambiente húmedo."],
+k:["Rechazo por llenado = fuera de especificación / llenadas × 100. Meta ≤ 0,8 %.","Registros completos / requeridos × 100. Meta ≥ 98 %."],
+s:"Bs 3.800 a 5.000. Bono de producción, uniforme.",ev:"Prueba práctica en el equipo, lectura de instrucciones, entrevista conductual.",
+o:"Bachiller, 1 año con maquinaria, turnos",de:"Experiencia en bebidas, BPM",dv:"Cambio rápido de formato, mantenimiento autónomo"},
+{c:"P-04",n:"Analista de Control de Calidad",a:"Calidad e Inocuidad",d:"Jefe de Control de Calidad",pl:6,
+p:"Verificar la conformidad del agua, jarabe, proceso y producto terminado para liberar lotes seguros.",
+f:["Tomar muestras según el plan de muestreo.","Realizar análisis fisicoquímicos y microbiológicos.","Verificar grados Brix, CO₂, pH, cloro y sellado.","Registrar resultados y liberar o retener lotes.","Notificar no conformidades y apoyar acciones correctivas."],
+fo:"Licenciatura o técnico superior en Química, Alimentos o Bioquímica. Deseable: ISO 17025 o 22000.",ex:"2 años en laboratorio de calidad; alimentos o bebidas.",
+g:[["Rigor y precisión",4],["Integridad",4],["Comunicación efectiva",3],["Pensamiento analítico",3],["Trabajo en equipo",3]],e:[["Análisis fisicoquímico y microbiológico",3],["Normas de inocuidad",3],["Estadística básica de calidad",2],["Documentación y trazabilidad",3],["Auditorías BPM y HACCP",2]],
+r:["El laboratorio, los equipos de medición y las muestras de agua, jarabe, proceso y producto terminado.","Libera o retiene lotes según los resultados y notifica las no conformidades; las desviaciones mayores las escala al Jefe de Control de Calidad.","Responde por la confiabilidad de los análisis, la liberación oportuna de lotes y el registro de resultados."],sb:["Análisis fisicoquímicos y microbiológicos, normas de inocuidad y estadística básica.","Tomar muestras, medir Brix, CO₂, pH y cloro, interpretar resultados y registrar la liberación de lotes.","Rigor, integridad e imparcialidad al reportar resultados.","Se coordina con Producción para las acciones correctivas y comunica las no conformidades con claridad."],cn:["Jornada en el horario del laboratorio, con apoyo al muestreo durante los turnos de producción.","Contacto con reactivos, muestras microbiológicas, vidrio y gases; usa bata, guantes y protección ocular.","Laboratorio de calidad y puntos de muestreo en la planta."],
+k:["Lotes liberados en 4 h / lotes totales × 100. Meta ≥ 95 %.","Reanálisis por error del analista / análisis totales × 100. Meta ≤ 1 %."],
+s:"Bs 5.500 a 7.000. Capacitación pagada, seguro de salud.",ev:"Práctica de laboratorio, interpretación de resultados, prueba de integridad.",
+o:"Formación en Química o Alimentos, 2 años en laboratorio",de:"ISO 22000",dv:"Control estadístico de procesos, auditoría interna"},
+{c:"P-05",n:"Técnico Mecánico-Eléctrico",a:"Mantenimiento e Ingeniería",d:"Jefe de Mantenimiento e Ingeniería",pl:10,
+p:"Mantener la disponibilidad y confiabilidad de líneas y servicios mediante mantenimiento preventivo y correctivo oportuno.",
+f:["Ejecutar el plan preventivo de llenadoras, sopladoras y compresores.","Atender fallas mecánicas y eléctricas en el menor tiempo.","Diagnosticar causas de falla y proponer mejoras.","Registrar intervenciones y repuestos en el sistema.","Aplicar bloqueo y etiquetado (LOTO) en cada intervención."],
+fo:"Técnico superior en Mecánica, Electricidad o Electromecánica. Deseable: PLC, neumática e hidráulica.",ex:"3 años en mantenimiento industrial; líneas de embotellado deseable.",
+g:[["Trabajo en equipo",3],["Solución de problemas",3],["Responsabilidad",3],["Atención al detalle",3],["Disponibilidad ante emergencias",3]],e:[["Diagnóstico de fallas",3],["Mantenimiento preventivo",3],["Lectura de planos",2],["Seguridad y LOTO",3],["Gestión de repuestos y registros",2]],
+r:["Herramientas, instrumentos y repuestos asignados, y equipos de línea como llenadoras, sopladoras y compresores.","Detiene o aísla un equipo aplicando LOTO ante riesgo y elige el método de reparación dentro del procedimiento; las compras de repuestos y los cambios mayores los autoriza el Jefe.","Responde por la disponibilidad de los equipos, el cumplimiento del preventivo y el tiempo de reparación."],sb:["Mecánica, electricidad industrial, lectura de planos, neumática y normas de seguridad (LOTO).","Ejecutar el mantenimiento preventivo, diagnosticar y reparar fallas y registrar intervenciones y repuestos.","Responsabilidad, iniciativa ante las fallas y compromiso con la seguridad.","Se coordina con Producción para programar paradas y trabaja en equipo con otros técnicos."],cn:["Jornada diurna, con disponibilidad para atender emergencias fuera de horario.","Riesgo eléctrico, atrapamientos, ruido, trabajo en altura y uso de herramientas; aplica EPP y bloqueo y etiquetado.","Talleres y líneas de la planta."],
+k:["Cumplimiento del preventivo = ejecutadas / programadas × 100. Meta ≥ 95 %.","MTTR = horas de reparación / número de fallas. Meta ≤ 1,5 h."],
+s:"Bs 5.000 a 6.800. Bono por disponibilidad de equipos.",ev:"Práctica de diagnóstico, lectura de planos, entrevista técnica.",
+o:"Formación técnica, 3 años en mantenimiento, seguridad",de:"PLC, experiencia en bebidas",dv:"Automatización, mantenimiento predictivo"},
+{c:"P-06",n:"Jefe de Distribución y Flota",a:"Logística y Distribución",d:"Gerente de Logística y Distribución",pl:1,
+p:"Entregar el producto a tiempo y completo a toda la red de clientes, con flota segura y costos controlados.",
+f:["Planificar rutas y asignar vehículos según los pedidos.","Controlar entregas, devoluciones y recuperación de envases retornables.","Administrar la flota y su mantenimiento preventivo.","Controlar el costo de transporte y el combustible.","Supervisar normas de tránsito y seguridad vial."],
+fo:"Licenciatura en Ingeniería Industrial, Comercial o Administración. Deseable: diplomado en logística.",ex:"5 años en logística, 2 en jefatura; distribución de consumo masivo.",
+g:[["Liderazgo",3],["Planificación y organización",4],["Comunicación efectiva",3],["Toma de decisiones",3],["Orientación a resultados",3]],e:[["Optimización de rutas",3],["Gestión de flota",3],["Costos logísticos",3],["Seguridad vial y normas de tránsito",3],["Gestión de envases retornables",2]],
+r:["La flota de reparto, los conductores y ayudantes, el presupuesto de transporte y el combustible.","Asigna rutas y vehículos, reprograma entregas y aprueba el mantenimiento preventivo de la flota; las inversiones en vehículos las consulta con el Gerente de Logística.","Responde por las entregas a tiempo y completas, el costo logístico por caja y la recuperación de envases."],sb:["Planificación de rutas, administración de flota, costos logísticos y normas de tránsito.","Programar rutas, controlar entregas y devoluciones, analizar el costo de transporte y liderar al personal de reparto.","Organización, liderazgo, responsabilidad y serenidad ante los imprevistos.","Se coordina con Ventas, Almacenes y Planificación de la Demanda, y mantiene buena relación con conductores y clientes."],cn:["Jornada diurna con inicio temprano y disponibilidad ante imprevistos de reparto.","Estrés por los plazos de entrega y riesgos de tránsito al supervisar rutas.","Oficina de logística, patio de la flota y visitas a rutas y clientes."],
+k:["OTIF = entregas conformes / totales × 100. Meta ≥ 96 %.","Costo logístico = gasto de distribución / cajas entregadas. Meta ≤ Bs 2,10 por caja."],
+s:"Bs 11.000 a 14.000. Bono por nivel de servicio, seguro médico.",ev:"Caso de optimización de rutas, entrevista por competencias, referencias.",
+o:"Título, 5 años en logística, liderazgo",de:"Diplomado en logística",dv:"Sistema de transporte (TMS), análisis avanzado de datos"},
+{c:"P-07",n:"Ejecutivo de Ventas",a:"Comercial",d:"Supervisor de Ventas",pl:30,
+p:"Vender y mantener la presencia de los productos en su zona, asegurando cobertura, rotación y buena relación con los clientes.",
+f:["Visitar a los clientes de su ruta según el plan semanal.","Tomar pedidos y gestionar cobros.","Verificar precios, exhibición y disponibilidad en el punto de venta.","Captar nuevos clientes en su zona.","Reportar información de la competencia y reclamos."],
+fo:"Bachillerato; técnico en Comercio, Marketing o Administración. Deseable: estudios universitarios en curso.",ex:"1 año en ventas de consumo masivo; tiendas de barrio y autoservicios.",
+g:[["Orientación al cliente",3],["Persuasión y negociación",3],["Resiliencia",3],["Comunicación efectiva",3],["Planificación y organización de la ruta",3],["Integridad y manejo de dinero",3]],e:[["Venta en ruta (visita, pedido y exhibición)",3],["Cartera y cobranza",2],["Herramientas digitales de pedidos",2]],
+r:["Su ruta de clientes, el material de punto de venta y el equipo o la aplicación de pedidos; maneja los cobros de su cartera.","Negocia dentro de la política de precios y descuentos autorizada; las condiciones especiales de precio o crédito las aprueba el Supervisor de Ventas.","Responde por el cumplimiento de la venta, la cobertura de su ruta y la recuperación de la cartera."],sb:["Portafolio de productos, política de precios y descuentos, mercado de tiendas de barrio y autoservicios, y su zona de ventas.","Visitar clientes, tomar pedidos, cobrar, verificar exhibición y precios y registrar información de la competencia.","Persuasión con ética, resiliencia ante el rechazo y honradez en el manejo del dinero.","Construye relaciones duraderas con los clientes y se coordina con su Supervisor, Distribución y Servicio al Cliente."],cn:["Jornada diurna en ruta, según el plan semanal de visitas.","Riesgos de tránsito, exposición al sol y a la intemperie, esfuerzo físico al mover producto y riesgo de robo al manejar cobros.","En ruta, en las tiendas, autoservicios y puntos de venta de su zona, con tareas administrativas al cierre."],
+k:["Cumplimiento de venta = venta real / meta × 100. Meta ≥ 100 %.","Cobertura = clientes con compra / clientes de la ruta × 100. Meta ≥ 85 %."],
+s:"Base Bs 3.200 más comisión; total Bs 4.000 a 6.500. Bono trimestral.",ev:"Simulación de visita de venta, cálculo comercial, entrevista conductual.",
+o:"Bachiller, 1 año en ventas, licencia de conducir",de:"Conocimiento de la zona",dv:"Negociación avanzada, sistema de fuerza de ventas"},
+{c:"P-08",n:"Analista de Talento Humano (Reclutamiento y Selección)",a:"Talento Humano",d:"Jefe de Selección y Desarrollo",pl:2,
+p:"Atraer, evaluar y seleccionar candidatos con las competencias requeridas, cubriendo vacantes con rapidez y calidad.",
+f:["Levantar el requerimiento de vacantes con las áreas.","Publicar ofertas y gestionar fuentes de reclutamiento.","Filtrar postulaciones según los perfiles por competencias.","Aplicar y calificar pruebas, entrevistas y evaluaciones.","Elaborar informes de terna y apoyar la decisión de contratación."],
+fo:"Licenciatura en Psicología, Ingeniería Industrial, Administración o RR. HH. Deseable: diplomado en competencias.",ex:"2 años en selección; masiva y de perfiles técnicos en industria.",
+g:[["Comunicación efectiva",4],["Objetividad e imparcialidad",4],["Orientación al cliente interno",3],["Confidencialidad y ética",4],["Organización y manejo de prioridades",3]],e:[["Entrevista por competencias",3],["Pruebas e interpretación",3],["Gestión de procesos de selección",3],["Legislación laboral boliviana",3],["Indicadores de talento humano",2]],
+r:["La base de postulantes, las pruebas psicométricas y de conocimientos, y los canales de publicación de vacantes.","Decide qué candidatos pasan cada filtro según el perfil; la terna final y la contratación se deciden con el Jefe de Selección y el área solicitante.","Responde por la cobertura de vacantes en el plazo y por la calidad de los candidatos contratados."],sb:["Perfiles por competencias, técnicas de entrevista, pruebas y legislación laboral boliviana.","Levantar requerimientos, filtrar postulaciones, aplicar y calificar pruebas y elaborar informes de terna.","Objetividad, confidencialidad y ética en el trato de los datos de los candidatos.","Se coordina con las áreas solicitantes y trata con respeto y claridad a los postulantes."],cn:["Jornada diurna de oficina.","Estrés por los plazos de cobertura y riesgos ergonómicos del trabajo en computadora.","Oficina de Talento Humano, con entrevistas presenciales o virtuales."],
+k:["Tiempo de cobertura = días de apertura a aceptación. Meta ≤ 30 días en vacantes críticas.","Contratados que superan la prueba / contratados × 100. Meta ≥ 90 %."],
+s:"Bs 5.500 a 7.200. Capacitación pagada, seguro de salud.",ev:"Simulación de entrevista, caso de elaboración de perfil, prueba de redacción.",
+o:"Título afín, 2 años en selección, legislación laboral",de:"Diplomado en competencias, selección masiva",dv:"Analítica de talento, plataformas de reclutamiento"}];
+var T=["Empresa",["Producción y Operaciones","P-01",[["Planta de Embotellado",0,[["Supervisor de Línea","P-02",[["Operador de Llenadora","P-03"],["Etiquetado y Empaque"]]]]],["Tratamiento de Agua y Jarabes"],["Planificación y Programación"],["Mantenimiento e Ingeniería",0,[["Técnico Mecánico-Eléctrico","P-05"],["Técnico en Automatización"]]]]],
+["Calidad e Inocuidad",0,[["Control de Calidad",0,[["Analista de Control de Calidad","P-04"],["Inspector de Línea"]]],["Aseguramiento BPM, HACCP, ISO 22000"]]],
+["Comercial",0,[["Ventas Canal Tradicional",0,[["Ejecutivo de Ventas","P-07"]]],["Canal Moderno y Cuentas Clave"],["Marketing"],["Servicio al Cliente"]]],
+["Logística y Distribución",0,[["Almacenes e Inventarios"],["Distribución y Flota","P-06"],["Planificación de la Demanda"]]],
+["Administrativa y Financiera",0,[["Contabilidad"],["Tesorería"],["Costos y Presupuestos"],["Créditos y Cobranzas"]]],
+["Compras y Abastecimiento",0,[["Materias Primas e Insumos"],["Repuestos y Servicios"]]],
+["Talento Humano",0,[["Selección y Desarrollo",0,[["Analista de Talento Humano","P-08"]]],["Personal y Planillas"]]],
+["Tecnologías de la Información",0,[["Infraestructura y Soporte"],["Sistemas y Datos"]]]];
+function E(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+function tree(a){return "<ul>"+a.map(function(x){var h=x[1]?'<a href="#'+x[1].toLowerCase()+'">'+x[1]+'</a> ':"";return "<li><span>"+h+E(x[0])+"</span>"+(x[2]?tree(x[2]):"")+"</li>"}).join("")+"</ul>"}
+function dots(n){var s="";for(var i=1;i<=4;i++)s+='<i class="'+(i<=n?"on":"")+'"></i>';return '<span class="dots" role="img" aria-label="Nivel '+n+' de 4">'+s+"</span>"}
+function comp(a){return a.map(function(x){return '<div class="comp"><span>'+E(x[0])+"</span>"+dots(x[1])+"</div>"}).join("")}
+var V={};
+V.empresa=function(){return '<h2 class="t">La empresa</h2><p class="sub">Caracterización: planta en el Parque Industrial de Santa Cruz de la Sierra, 850 trabajadores, 4 líneas y 3 turnos.</p>'+
+'<div class="grid"><div class="card"><h3>Qué hace</h3><p>Elabora y embotella agua purificada, gaseosas, néctares y bebida isotónica en envases PET y retornables de vidrio. Vende a distribuidores, supermercados, tiendas de barrio, restaurantes y hoteles.</p></div>'+
+'<div class="card"><h3>Misión</h3><p>Elaborar bebidas seguras y de calidad que acompañen la vida diaria de las familias bolivianas, con procesos eficientes, personas competentes y respeto por el agua y el entorno.</p></div>'+
+'<div class="card"><h3>Visión</h3><p>Ser en 2031 la embotelladora de referencia del oriente boliviano por calidad, servicio y gestión responsable del talento y los recursos.</p></div></div>'+
+'<div class="card"><h3>Objetivos estratégicos</h3><ol><li>Crecer 10 % anual el volumen de ventas.</li><li>Cero no conformidades críticas en auditorías BPM, HACCP e ISO 22000.</li><li>OEE de planta ≥ 80 %.</li><li>Rotación ≤ 8 % y vacantes críticas cubiertas en ≤ 30 días.</li><li>Consumo de agua ≤ 1,8 L por litro producido.</li></ol></div>'+
+'<div class="card"><h3>Mapa de procesos</h3><div class="grid"><div><b>Estratégicos</b><ul><li>Planificación y control de gestión</li><li>Calidad, inocuidad y mejora continua</li><li>Gestión del talento humano</li></ul></div><div><b>Operativos</b><ul><li>Gestión comercial y ventas</li><li>Abastecimiento de insumos</li><li>Tratamiento de agua y jarabe</li><li>Embotellado y empaque</li><li>Control de calidad</li><li>Almacenamiento y distribución</li><li>Posventa y reclamos</li></ul></div><div><b>De apoyo</b><ul><li>Mantenimiento e ingeniería</li><li>Seguridad, salud y medio ambiente</li><li>Administración y finanzas</li><li>Tecnologías de la información</li></ul></div></div></div>'};
+V.organigrama=function(){return '<h2 class="t">Organigrama</h2><p class="sub">Los puestos con etiqueta roja tienen ficha completa. Toque una etiqueta para abrirla.</p><div class="card"><ul class="tree"><li class="g"><span>Junta General de Accionistas</span><ul><li><span>Directorio</span><ul><li><span>Auditoría Interna (staff)</span></li><li class="g"><span>Gerencia General</span><ul><li><span class="c">Asesoría Legal, Secretaría Ejecutiva y Jefatura de SSO y Medio Ambiente (staff)</span></li>'+
+T.slice(1).map(function(g){return '<li class="g"><span>'+(g[1]?'<a href="#'+g[1].toLowerCase()+'">'+g[1]+'</a> ':"")+"Gerencia de "+E(g[0])+"</span>"+(g[2]?tree(g[2]):"")+"</li>"}).join("")+'</ul></li></ul></li></ul></li></ul></div>'};
+V.inventario=function(){var t=0;return '<h2 class="t">Inventario de puestos</h2><p class="sub">Formulario 1B. Toque un código para abrir la ficha completa.</p>'+
+'<div class="card scroll"><table><thead><tr><th>Código</th><th>Denominación del puesto</th><th>Área</th><th>Depende de</th><th>N.º plazas</th></tr></thead><tbody>'+
+P.map(function(p){t+=p.pl;return '<tr><td><a href="#'+p.c.toLowerCase()+'">'+p.c+'</a></td><td>'+E(p.n)+'</td><td>'+E(p.a)+'</td><td>'+E(p.d)+'</td><td>'+p.pl+'</td></tr>'}).join("")+
+'</tbody><tfoot><tr><th colspan="4">Total de plazas</th><th>'+t+'</th></tr></tfoot></table></div>'};
+function puesto(i){var p=P[i],pr=P[i-1],nx=P[i+1];return '<span class="code">'+p.c+'</span><h2 class="t" style="margin-top:8px">'+E(p.n)+'</h2>'+
+'<div class="meta"><div><b>Área</b>'+E(p.a)+'</div><div><b>Depende de</b>'+E(p.d)+'</div><div><b>Plazas</b>'+p.pl+'</div></div>'+
+'<div class="card"><h3>Propósito</h3><p>'+E(p.p)+'</p></div>'+
+'<div class="card"><h3>Funciones</h3><ol>'+p.f.map(function(x){return "<li>"+E(x)+"</li>"}).join("")+'</ol></div>'+
+'<div class="card"><h3>Responsabilidades y decisiones</h3><p><b>Recursos.</b> '+E(p.r[0])+'</p><p><b>Decisiones.</b> '+E(p.r[1])+'</p><p><b>Resultados.</b> '+E(p.r[2])+'</p></div>'+
+'<div class="grid"><div class="card"><h3>Competencias generales</h3>'+comp(p.g)+'</div><div class="card"><h3>Competencias específicas</h3>'+comp(p.e)+'</div></div>'+
+'<p class="sub" style="margin-top:-8px">Niveles: 1 básico, 2 intermedio, 3 avanzado, 4 experto.</p>'+
+'<div class="grid"><div class="card"><h3>Formación y experiencia</h3><p><b>Formación.</b> '+E(p.fo)+'</p><p><b>Experiencia.</b> '+E(p.ex)+'</p></div>'+
+'<div class="card"><h3>Qué se exige y qué se desarrolla</h3><div class="tags"><span><b>Obligatorio:</b> '+E(p.o)+'</span><span><b>Deseable:</b> '+E(p.de)+'</span><span><b>Se desarrolla con capacitación:</b> '+E(p.dv)+'</span></div></div></div>'+
+'<div class="grid"><div class="card"><h3>Saberes</h3><p><b>Saber conocer.</b> '+E(p.sb[0])+'</p><p><b>Saber hacer.</b> '+E(p.sb[1])+'</p><p><b>Saber ser.</b> '+E(p.sb[2])+'</p><p><b>Saber convivir.</b> '+E(p.sb[3])+'</p></div>'+
+'<div class="card"><h3>Condiciones y riesgos del trabajo</h3><p><b>Jornada.</b> '+E(p.cn[0])+'</p><p><b>Riesgos.</b> '+E(p.cn[1])+'</p><p><b>Entorno.</b> '+E(p.cn[2])+'</p></div></div>'+
+'<div class="card"><h3>Indicadores del puesto</h3>'+p.k.map(function(x){return '<div class="kpi">'+E(x)+"</div>"}).join("")+'</div>'+
+'<div class="grid"><div class="card"><h3>Salario y beneficios</h3><p>'+E(p.s)+'</p></div><div class="card"><h3>Evaluación en la selección</h3><p>'+E(p.ev)+'</p></div></div>'+
+'<div class="pager">'+(pr?'<a href="#'+pr.c.toLowerCase()+'">‹ '+pr.c+'</a>':"<span></span>")+(nx?'<a href="#'+nx.c.toLowerCase()+'">'+nx.c+' ›</a>':"<span></span>")+'</div>'}
+function nav(h){document.getElementById("nav").innerHTML='<h2>La organización</h2><div class="l"><a href="#empresa">Empresa</a><a href="#organigrama">Organigrama</a><a href="#inventario">Inventario de puestos</a></div><h2>Puestos</h2><div class="l">'+
+P.map(function(p){return '<a href="#'+p.c.toLowerCase()+'">'+p.c+'<small>'+E(p.n)+"</small></a>"}).join("")+"</div>";
+document.querySelectorAll("#nav a").forEach(function(a){if(a.getAttribute("href")==="#"+h)a.setAttribute("aria-current","page")})}
+function route(){var h=(location.hash||"#empresa").slice(1),m=document.getElementById("main"),i=-1;
+P.forEach(function(p,k){if(p.c.toLowerCase()===h)i=k});
+if(i>=0)m.innerHTML=puesto(i);else{if(h!=="organigrama"&&h!=="inventario")h="empresa";m.innerHTML=V[h]()}
+nav(h);window.scrollTo(0,0)}
+window.addEventListener("hashchange",route);route();
+var tg=document.getElementById("tg"),dk=matchMedia("(prefers-color-scheme:dark)").matches;
+function th(){document.documentElement.setAttribute("data-theme",dk?"dark":"light");tg.textContent=dk?"Modo claro":"Modo oscuro"}
+th();tg.onclick=function(){dk=!dk;th()};
+</script>
+</body>
+</html>
